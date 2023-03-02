@@ -1,6 +1,7 @@
 import Vue from "vue"
 import Vuex from 'vuex'
 import addition from './modules/Addition.js'
+import substraction from './modules/Substraction.js'
 
 
 Vue.use(Vuex)
@@ -11,6 +12,7 @@ const store = new Vuex.Store({
     // getters,    // 用于对State中的数据进行加工处理形成新的数据（state中的数据发生改变，Getter中的数据也跟着发生改变） 
     modules: {  // 内部仍然可以继续存放一些子store,内部再有五种属性，模块化vuex
         addition,
+        substraction
     }  
 })
 

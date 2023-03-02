@@ -1,23 +1,37 @@
 <template>
     <div>
-        <h5>{{message}}:{{count}}</h5>
-        <button @click="handle1">-1</button>
+        <h5>普通修改:{{count}}</h5>
+        <button @click="handle1">普通-1</button>
+        <button @click="btnhandle">全局-1</button>
+        <button @click="btnhandle2N">全局-10</button>
+        <button @click="btnhandle3">全局缓存5秒-1</button>
+
     </div>
 </template>
 
 <script>
+import { mapMutations, mapActions } from 'vuex'
 export default {
-    name: 'addition',
+    name: 'substraction',
     data() {
         return {
             count: 0,
-            message: '计数的第二种方式的值为'
         }
     },
     methods: {
-        handle1() {
+        handle1() { // 只应用本页面
             this.count--
-            console.log(this.count);
+        },
+        ...mapMutations(['substraction/sub',  'substraction/subN']),
+        ...mapActions(['substraction/AsyncSub']),
+        btnhandle(){
+            this['substraction/sub']()
+        },
+        btnhandle2N(){
+            this['substraction/subN'](10)
+        },
+        btnhandle3(){
+            this['substraction/AsyncSub']()
         }
     }
 }
