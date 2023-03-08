@@ -4,6 +4,8 @@ import Vue from 'vue'
  
 import Home from '../components/Home'
 import About from '../components/About'
+import VuexDemo from '../components/vuexDemo'
+
  
 // 1.通过Vue.use(插件), 安装插件
 Vue.use(VueRouter)
@@ -18,6 +20,10 @@ const routes = [
   {
     path: '/home',
     component: Home
+  },
+  {
+    path: '/vuexDemo',
+    component: VuexDemo
   },
   {
     path: '/about',
